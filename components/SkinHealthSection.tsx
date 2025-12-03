@@ -1,7 +1,7 @@
 import React from 'react';
-import { SectionWrapper } from './SectionWrapper';
-import { Checkbox, TextInput } from './InputFields';
-import { FormData } from '../types';
+import { SectionWrapper } from './SectionWrapper.tsx';
+import { Checkbox, TextInput } from './InputFields.tsx';
+import { FormData } from '../types.ts';
 
 interface Props {
   data: FormData['skinHealth'];
@@ -49,9 +49,9 @@ export const SkinHealthSection: React.FC<Props> = ({ data, onChange }) => {
   return (
     <SectionWrapper title="2. Tình Trạng Da & Sức Khỏe">
       {/* 2.1 */}
-      <div className="mb-6">
-        <h3 className="text-md font-semibold text-slate-800 mb-3">2.1. Tình trạng da hiện tại</h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      <div className="mb-6 print:mb-2">
+        <h3 className="text-md font-semibold text-slate-800 mb-3 print:mb-1">2.1. Tình trạng da hiện tại</h3>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 print:grid-cols-4 gap-3 print:gap-1">
           {CONDITIONS.map(cond => (
             <Checkbox
               key={cond}
@@ -64,9 +64,9 @@ export const SkinHealthSection: React.FC<Props> = ({ data, onChange }) => {
       </div>
 
       {/* 2.2 */}
-      <div className="mb-6">
-        <h3 className="text-md font-semibold text-slate-800 mb-3">2.2. Loại da</h3>
-        <div className="flex flex-wrap gap-4">
+      <div className="mb-6 print:mb-2">
+        <h3 className="text-md font-semibold text-slate-800 mb-3 print:mb-1">2.2. Loại da</h3>
+        <div className="flex flex-wrap gap-4 print:gap-2">
           {SKIN_TYPES.map(type => (
             <Checkbox
               key={type}
@@ -80,8 +80,8 @@ export const SkinHealthSection: React.FC<Props> = ({ data, onChange }) => {
 
       {/* 2.3 */}
       <div>
-        <h3 className="text-md font-semibold text-slate-800 mb-3">2.3. Tiền sử da liễu</h3>
-        <div className="space-y-4">
+        <h3 className="text-md font-semibold text-slate-800 mb-3 print:mb-1">2.3. Tiền sử da liễu</h3>
+        <div className="space-y-4 print:space-y-1">
           <HistoryRow
             label="Từng điều trị mụn?"
             checked={data.history.treatedAcne.value}
@@ -128,7 +128,7 @@ const HistoryRow: React.FC<{
   onCheck: (val: boolean) => void;
   onNote: (val: string) => void;
 }> = ({ label, checked, note, yesLabel = 'Rồi', noLabel = 'Chưa', onCheck, onNote }) => (
-  <div className="flex flex-col md:flex-row md:items-center gap-4 border-b border-dashed border-slate-200 pb-2 last:border-0">
+  <div className="flex flex-col md:flex-row md:items-center gap-4 border-b border-dashed border-slate-200 pb-2 last:border-0 print:border-slate-300 print:pb-1">
     <span className="w-full md:w-1/3 text-slate-700">{label}</span>
     <div className="flex items-center gap-4 w-full md:w-1/4">
       <label className="flex items-center space-x-2 cursor-pointer">
@@ -150,7 +150,7 @@ const HistoryRow: React.FC<{
         <span>{yesLabel}</span>
       </label>
     </div>
-    <div className={`flex-1 transition-opacity duration-300 ${checked ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+    <div className={`flex-1 transition-opacity duration-300 ${checked ? 'opacity-100' : 'opacity-0 pointer-events-none print:opacity-100'}`}>
        <input
           type="text"
           placeholder="Chi tiết..."

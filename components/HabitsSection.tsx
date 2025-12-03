@@ -1,7 +1,7 @@
 import React from 'react';
-import { SectionWrapper } from './SectionWrapper';
-import { Checkbox, Radio } from './InputFields';
-import { FormData } from '../types';
+import { SectionWrapper } from './SectionWrapper.tsx';
+import { Checkbox, Radio } from './InputFields.tsx';
+import { FormData } from '../types.ts';
 
 interface Props {
   data: FormData['habits'];
@@ -15,9 +15,9 @@ export const HabitsSection: React.FC<Props> = ({ data, onChange }) => {
 
   return (
     <SectionWrapper title="3. Thói Quen Chăm Sóc & Sinh Hoạt">
-      <div className="mb-6">
-        <h3 className="text-md font-semibold text-slate-800 mb-3 border-l-4 border-teal-500 pl-2">Routine hiện tại</h3>
-        <div className="space-y-4 text-sm md:text-base">
+      <div className="mb-6 print:mb-2">
+        <h3 className="text-md font-semibold text-slate-800 mb-3 border-l-4 border-teal-500 pl-2 print:border-l-2 print:pl-1 print:mb-1">Routine hiện tại</h3>
+        <div className="space-y-4 text-sm md:text-base print:space-y-1">
           {/* Cleanser */}
           <div className="flex flex-col md:flex-row md:items-center">
             <span className="w-32 font-medium text-slate-700">Sữa rửa mặt:</span>
@@ -73,7 +73,7 @@ export const HabitsSection: React.FC<Props> = ({ data, onChange }) => {
             </div>
           </div>
 
-           <div className="mt-4">
+           <div className="mt-4 print:mt-1">
             <label className="block text-slate-700 font-medium mb-1">Sản phẩm đang dùng:</label>
             <textarea
               rows={3}
@@ -87,9 +87,9 @@ export const HabitsSection: React.FC<Props> = ({ data, onChange }) => {
       </div>
 
       <div className="mb-2">
-        <h3 className="text-md font-semibold text-slate-800 mb-3 border-l-4 border-teal-500 pl-2">Thói quen sinh hoạt</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
-           <div className="flex justify-between items-center border-b border-slate-100 pb-2">
+        <h3 className="text-md font-semibold text-slate-800 mb-3 border-l-4 border-teal-500 pl-2 print:border-l-2 print:pl-1 print:mb-1">Thói quen sinh hoạt</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-y-4 gap-x-8 print:gap-y-1">
+           <div className="flex justify-between items-center border-b border-slate-100 pb-2 print:border-slate-300 print:pb-1">
              <span>Ngủ đủ 7-8 tiếng?</span>
              <div className="flex gap-4">
                 <Radio label="Có" name="sleep" value="yes" checked={data.sleep} onChange={() => update('sleep', true)} />
@@ -97,7 +97,7 @@ export const HabitsSection: React.FC<Props> = ({ data, onChange }) => {
              </div>
            </div>
 
-           <div className="flex justify-between items-center border-b border-slate-100 pb-2">
+           <div className="flex justify-between items-center border-b border-slate-100 pb-2 print:border-slate-300 print:pb-1">
              <span>Stress nhiều?</span>
              <div className="flex gap-4">
                 <Radio label="Có" name="stress" value="yes" checked={data.stress} onChange={() => update('stress', true)} />
@@ -105,7 +105,7 @@ export const HabitsSection: React.FC<Props> = ({ data, onChange }) => {
              </div>
            </div>
 
-            <div className="flex justify-between items-center border-b border-slate-100 pb-2">
+            <div className="flex justify-between items-center border-b border-slate-100 pb-2 print:border-slate-300 print:pb-1">
              <span>Ăn cay/ngọt nhiều?</span>
              <div className="flex gap-4">
                 <Radio label="Có" name="diet" value="yes" checked={data.dietSpicySweet} onChange={() => update('dietSpicySweet', true)} />
@@ -113,7 +113,7 @@ export const HabitsSection: React.FC<Props> = ({ data, onChange }) => {
              </div>
            </div>
 
-           <div className="flex flex-wrap justify-between items-center border-b border-slate-100 pb-2">
+           <div className="flex flex-wrap justify-between items-center border-b border-slate-100 pb-2 print:border-slate-300 print:pb-1">
              <span className="mr-2">Lượng nước uống:</span>
              <div className="flex gap-3 text-sm">
                 <Radio label="< 1L" name="water" value="<1L" checked={data.water === '<1L'} onChange={(v) => update('water', v)} />

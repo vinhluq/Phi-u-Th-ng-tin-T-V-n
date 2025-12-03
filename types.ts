@@ -1,3 +1,4 @@
+
 export interface PersonalInfo {
   fullName: string;
   dob: string;
@@ -45,6 +46,8 @@ export interface Goals {
 }
 
 export interface FormData {
+  id?: string; // Firebase Document ID
+  createdAt?: any; // Firebase Timestamp
   personal: PersonalInfo;
   skinHealth: SkinHealth;
   habits: Habits;

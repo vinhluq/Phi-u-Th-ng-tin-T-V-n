@@ -1,7 +1,7 @@
 import React from 'react';
-import { SectionWrapper } from './SectionWrapper';
-import { TextInput, Radio } from './InputFields';
-import { FormData } from '../types';
+import { SectionWrapper } from './SectionWrapper.tsx';
+import { TextInput, Radio } from './InputFields.tsx';
+import { FormData } from '../types.ts';
 
 interface Props {
   data: FormData['personal'];
