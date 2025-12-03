@@ -5,7 +5,10 @@
   "scripts": {
     "build": "echo 'No build step required for Babel Standalone' && exit 0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {},
   "engines": {
     "node": ">=18.0.0"
