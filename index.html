@@ -7,6 +7,23 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Import Map: Explicitly define React 18 and Firebase 10 versions -->
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "firebase/app": "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js",
+    "firebase/firestore": "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js",
+    "firebase/analytics": "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.6.0/"
+  }
+}
+</script>
+
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -71,66 +88,19 @@
           padding-left: 0 !important;
           padding-top: 0 !important;
           padding-bottom: 0 !important;
-          border-radius: 0 !important;
-          font-size: 9pt !important;
-          height: auto !important;
-          line-height: 1.1 !important;
-          min-height: 0 !important;
-        }
-        /* Keep checkboxes visible */
-        input[type="checkbox"], input[type="radio"] {
-          -webkit-appearance: none;
-          appearance: none;
-          border: 1px solid #333 !important;
-          background: white !important;
-          width: 9px !important;
-          height: 9px !important;
-          display: inline-block;
-          margin-right: 3px;
-          margin-top: 1px;
-        }
-        input[type="checkbox"]:checked, input[type="radio"]:checked {
-          background: #0d9488 !important; /* teal-600 */
-          border-color: #0d9488 !important;
+          min-height: auto !important;
         }
         
-        /* Adjust spacing for print */
-        .mb-6 { margin-bottom: 4px !important; }
-        .mb-4 { margin-bottom: 3px !important; }
-        .gap-4 { gap: 6px !important; }
-        .gap-y-4 { row-gap: 3px !important; }
-        .p-6 { padding: 0 !important; }
-        .py-2 { padding-top: 0 !important; padding-bottom: 0 !important; }
-        
-        /* Visual adjustments */
-        .face-map-visual {
-            width: 100px !important;
-            height: 125px !important;
-        }
-        
-        /* Page specific grouping */
-        .print-page-1, .print-page-2 {
-            width: 100%;
+        /* Hide inputs border in checkbox/radio group to look cleaner */
+        .print-hidden-border {
+             border: none !important;
         }
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react/": "https://esm.sh/react@18.2.0/",
-    "react-dom": "https://esm.sh/react-dom@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-    "firebase/app": "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js",
-    "firebase/firestore": "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "firebase/": "https://aistudiocdn.com/firebase@^12.6.0/"
-  }
-}
-</script>
-</head>
+  </head>
   <body>
     <div id="root"></div>
-    <script type="text/babel" data-presets="react,typescript" data-type="module" src="./index.tsx"></script>
+    <!-- Load the React App -->
+    <script type="text/babel" data-type="module" src="./index.tsx"></script>
   </body>
 </html>
